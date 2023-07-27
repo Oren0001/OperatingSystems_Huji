@@ -1,0 +1,15 @@
+oren503, shelly
+Oren Motiei (321174591), Shelly Madar (207542143)
+EX: 3
+
+FILES:
+MapReduceFramework.cpp - implementation of MapReduceFramework.h
+Barrier.h - Makes sure no thread continues before all threads arrived at the barrier.
+Barrier.cpp - implementation of Barrier.h
+Makefile
+
+REMARKS:
+None.
+
+ANSWERS:
+None.

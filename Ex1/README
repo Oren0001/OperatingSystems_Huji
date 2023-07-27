@@ -1,0 +1,36 @@
+oren503, shelly
+Oren Motiei (321174591), Shelly Madar (207542143)
+EX: 1
+
+FILES:
+osm.cpp -- provides functions to measure the average time it takes
+           to perform three different operations.
+Graph.png -- Graph that shows the average times of all three operations directly on the
+             machine, inside the VM and inside the container.
+Makefile
+
+REMARKS:
+None.
+
+Assignment 1:
+Initially, the program creates a new directory named "welcome_dir_1" with read, write and execute
+permissions (777). Then it creates another directory in it named "welcome_dir_2" with the same
+permissions.
+
+Using the brk system call, the program changes the allocated space.
+Using openat it creates and opens a new file named "welcome_file.txt" in directory "welcome_dir_2"
+with read and write permissions (666), and it's file descriptor is 3. Then it opens another file
+named "localtime" in read only mode, and it's file descriptor is 4.
+
+Next, it uses fstat to get information about the file associated with file descriptor 4
+("localtime"), such as size, mode, permissions, etc. Then it tries to read 4096 bytes from
+the file, moves the current position using lseek, tries again to read 4096 from the file
+and finally closes it.
+
+Afterwards, the program uses fstat again to get information about the file associated with file
+descriptor 3 ("welcome_file.txt"). Using the write function, it successfully writes
+"welcome to OS-2023" to the file and closes it.
+
+Finally, it deletes "welcome_file.txt" file using unlink and then it tries to delete
+"welcome_dir_2" and "welcome_dir_1" using unlink again, but it fails with error code "EISDIR",
+so it successfully deletes them using rmdir.

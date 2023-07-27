@@ -1,0 +1,58 @@
+oren503, shelly
+Oren Motiei (321174591), Shelly Madar (207542143)
+EX: 2
+
+FILES:
+uthreads.cpp -- Implementation of uthreads.h
+Thread.h -- A class which represents threads.
+Makefile
+
+REMARKS:
+None.
+
+
+ANSWERS - Part 1:
+
+Q1:
+a. int sigsetjmp(sigjmp_buf env, int savesigs):
+   Saves stack context, program counter, signal mask (if specified) and CPU state in env
+   for later use.
+   Returns 0 when returning directly, otherwise a user-defined value if we have just arrived
+   here using siglongjmp.
+
+   void siglongjmp(sigjmp_buf env, int val) -
+   Jumps to the code location where the sigsetjmp has been called, and restores CPU
+   state specified by env.
+
+b. sigsetjmp gets an argument named "savesigs", if its value is non-zero then sigsetjmp saves
+   the current signal mask in env. If the signal mask was saved, siglongjmp will restore
+   it when it's called.
+
+Q2:
+A general use of user-level threads can be in an application that needs to execute multiple
+computational tasks at once. User-level threads are reasonable choice because it enables
+to execute different parts of the same code concurrently, hence allowing the computational
+tasks to run concurrently.
+
+Q3:
+Advantages:
+1. Isolation - Each process has it's own allocated memory space and is not aware of the others.
+   Therefore, if one process has a bug it does not affect the others.
+2. Each process has its own resources which makes it easier to manage and avoid conflicts.
+
+Disadvantages:
+1. More context switching overhead.
+2. Creating a new process is more expensive than creating a new kernel-level thread.
+3. Communicating between processes is more difficult than communicating between threads,
+   because threads have shared memory.
+
+Q4:
+When we wrote the command "kill pid", it sent a SIGTERM signal from the OS to the "Shotwell"
+process with the specified pid.
+The keyboard I/O interrupt was handled by the OS, and the command text was displayed in the shell.
+The "Shotwell" process then received the signal and terminated.
+
+Q5:
+Virtual time refers to the time required for a CPU to complete a task without any interruptions.
+On the other hand, Real time includes interruptions and delays caused
+by other processes or external factors.

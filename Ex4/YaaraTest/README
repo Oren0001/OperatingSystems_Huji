@@ -1,0 +1,27 @@
+Before running:
+1. Switch "MemoryConstants.h" with "YaaraConstants.h" on VirtualMemory.h and PhysicalMemory.h files.
+2. Switch "SimpleTest.cpp" with "YaaraTest.cpp" on CMake.
+
+Run the test.
+If everything goes well you should get:
+
+start init
+passed init
+....
+start first test
+passed first test
+....
+start second test
+passed second test
+....
+start third test
+passed third test
+....
+start fourth test
+passed fourth test
+....
+passed all tests!!
+
+Process finished with exit code 0
+
+ 
